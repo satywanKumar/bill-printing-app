@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <form [formGroup]="newAccount" (ngSubmit)="save()">
+    <h3 class="heading">Add New customer Account</h3>
+    <div class="row">
+      <div class="col-sm-6">
+              <input type="text" style="display: none;" formControlName="_id"/>
+
+          <mat-form-field>
+              <input type="text" matInput placeholder="Full Name" formControlName="partyName">
+          </mat-form-field>
+
+
+          <mat-form-field>
+              <input type="number" matInput placeholder="Phone" formControlName="phone">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input type="number" matInput placeholder="Total Amount" formControlName="total">
+        </mat-form-field>
+      
+      </div>
+
+      <div class="col-sm-6">
+          <mat-form-field>
+              <input type="number" matInput placeholder="Paid" formControlName="paid">
+          </mat-form-field>
+
+       
+
+          <mat-form-field>
+              <input type="number" matInput placeholder="Last Payment" formControlName="lastPay">
+          </mat-form-field>
+
+          <mat-form-field>
+              <input type="date" matInput placeholder="Last Payment Date" formControlName="lastPayDate">
+          </mat-form-field>
+    
+      </div>
+    </div>
+               
+    <button type="submit" mat-flat-button color="primary"><fa *ngIf="isLoading" name="cog" animation="spin"></fa> Save</button>
+  </form>
+</div>

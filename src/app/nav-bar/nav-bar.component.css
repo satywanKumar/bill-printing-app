@@ -1,0 +1,31 @@
+.sidenav-container {
+  height: 100%;
+  background-color: white;
+}
+
+.sidenav {
+  width: 200px;
+  box-shadow: 5px 5px 10px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+.logo
+{
+  height: 50px;
+}
+
+mat-toolbar
+{
+   background-image: linear-gradient(to right,#563d7c,#7a6796);
+   color:white;
+   z-index: 99999 !important;
+}
+.developer
+{
+  position: absolute;
+  bottom: 0px;
+  color: #8573a0;
+}

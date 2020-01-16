@@ -1,0 +1,39 @@
+<div class="wrapper">
+  <div class="fee-card">
+    <h4 class="header">Account Detail</h4>
+    <div class="fee-detail">
+        <div class="row">
+            <div class="col-sm-6">
+              <p>Phone</p>
+              <p>Total Fee</p>
+              <p>Paid Fee</p>
+              <p>Last Payment</p>
+              <p>Last Payment Date</p>
+              <p>Total Dues</p>
+            </div>
+        
+            <div class="col-sm-6">
+                <p>: {{account.phone}}</p>
+                <p>: {{account.total}} </p>
+                <p>: {{account.paid}} </p>
+                <p>: {{account.lastPay}} </p>
+                <p>: {{account.lastPayDate}}</p>
+                <p>: {{account.total - account.paid}}</p>
+            </div>
+          
+          </div>
+    </div>
+
+    <p align="center" *ngIf="!isFullPaid" style="color:red">No dues</p>
+
+  </div>
+  <br><br>
+  <form  *ngIf="isFullPaid" class="fee-card">
+    <mat-form-field>
+        <input type="number" name="lastPay" matInput placeholder="Pay in rupees" [(ngModel)]="data.lastPay">
+    </mat-form-field>
+
+   <button  mat-flat-button color="primary" (click)="pay()">pay</button>
+  </form>
+
+</div>

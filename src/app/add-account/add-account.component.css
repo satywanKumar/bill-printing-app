@@ -1,0 +1,30 @@
+.wrapper
+{
+    width:100%;
+    background-color: white;
+    padding:10% 2%;
+}
+mat-form-field
+{
+    width:100%;
+}
+form{
+    width:70%;
+    margin: auto;
+    box-shadow: 5px 5px 10px;
+    padding:20px;
+}
+button{
+    width:100%;
+}
+.heading
+{
+    text-align: center;
+}
+
+@media (max-width:500px)
+{
+    form{
+        width:100%;
+    }
+}

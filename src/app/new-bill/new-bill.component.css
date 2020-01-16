@@ -1,0 +1,27 @@
+.wrapper
+{
+    padding:10% 5%;
+}
+
+.form-box{
+    padding: 1%;
+    box-shadow: 5px 5px 10px #563d7c;
+    background-color: #eee;
+}
+button[type="submit"]
+{
+    background-color: #563d7c;
+}
+
+.cancel-icon:hover
+{
+    cursor: pointer;
+}
+
+@media (max-width:500px)
+{
+    .wrapper
+    {
+        padding: 15% 5%;
+    }
+}

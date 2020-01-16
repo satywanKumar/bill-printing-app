@@ -1,0 +1,39 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar ><img class="logo" src="/assets/ss.png"/></mat-toolbar>
+    <mat-nav-list>
+      <a routerLink="/dashboard/bill-list" mat-list-item>All Bill List</a>
+      <a routerLink="/dashboard/new-bill" mat-list-item>Add New Bill</a>
+      <a routerLink="/dashboard/account-list" mat-list-item>Account Detail</a>
+      <a routerLink="/dashboard/add-account" mat-list-item>New Account</a>
+      <a (click)="logout()" mat-list-item>Logout</a>
+
+
+
+
+      <p class="developer">Developed by Satywan Kr.</p>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar style="position: fixed;">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>SS Bricks Pvt. Ltd.</span>
+      
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

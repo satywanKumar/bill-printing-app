@@ -1,0 +1,124 @@
+<div class="wrapper">
+  <div *ngIf="isLoading" class="loader">
+    <img src="assets/Loader.gif"/>
+  </div>
+  <div *ngIf="!isLoading" id="bill">
+
+   <div class="company-container">
+    <h1 class="company-name">S.S ENTERPRISES</h1>
+    <!-- <h5>(Flysh Bricks)</h5> -->
+    <div class="company-detail">
+      <p>Gadri Guru Ratu, Ranchi - 835222</p>
+      <p>Phone : 8809796076/7903385644  Email : sk@gmail.com</p>
+      <p>GSTIN NO: 20GVWPK8055C1ZD (Tax invoice)</p>
+    </div>
+
+   </div>
+
+   <table>
+     <tr>
+       <td>
+         <p>Bill to party : </p>
+         <p>{{bill.partyAdd1}} <br>{{bill.city}}, {{bill.state}}, {{bill.country}}, {{bill.pin}}</p>
+      </td>
+       <td>
+         <p>TAX INVOICE NO : {{bill.taxInvoiceNo}}</p>
+         <p>Date : {{bill.dateOfBill | date:['dd-MM-yyyy']}}</p>
+       </td>
+     </tr>
+   </table><br>
+
+   <table>
+    <tr>
+      <th>S.No</th>
+      <th>Material/HSN</th>
+      <th>Quantity</th>
+      <th>Rate (Rs/unit)</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>01.</td>
+      <td>Flyash Bricks<br>
+          68159910
+      </td>
+      <td>
+        <ul *ngFor="let quantity of bill.quantity; let i=index">
+          <li>{{i+1}}. {{quantity.no}}</li>
+        </ul>
+      </td>
+      <td>
+        {{bill.rate}}
+      </td>
+      <td>
+        {{bill.basicValue}}
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table>
+    <tr>
+      <td>
+        Basic Value
+      </td>
+      <td>
+       Rs. {{bill.basicValue}}
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        GST @ {{bill.gstPercent}} %
+      </td>
+      <td>
+        Rs. {{bill.gst}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        SGST @ {{bill.sgstPercent}} %
+      </td>
+      <td>
+        Rs. {{bill.sgst}}
+      </td>
+    </tr>
+
+    <tr>
+      <th>
+        Gross Total
+      </th>
+      <th>
+       Rs. {{bill.grossTotal}} only
+      </th>
+    </tr>
+  </table>
+  <br>
+  <table>
+    <tr>
+      <th>Pay to :</th>
+      <th>Shipping Detail</th>
+    </tr>
+    <tr>
+      <td>
+        <p>S.S ENTERPRISES<br>
+          Bank :- IDBI <br>
+          Branch :- SAPAROM<br>
+          IFSC :- IBKL0001751<br>
+          A/C No :- 469520110000270</p>
+      </td>
+      <td>
+        Place : {{bill.shippingDetailPlace}}<br>
+        Vehicle No: {{bill.vehicleNo}}<br>
+        Vehicle Type : {{bill.vehicleType}}
+      </td>
+    </tr>
+  </table>
+  <br><br><br>
+
+  <div class="signature">
+    <p>Authorized signature</p>
+  </div>   
+  </div>
+  <br>
+  <button  *ngIf="!isLoading" (click)="print('bill')" type="button" class="btn btn-block btn-primary">Print</button>
+</div>

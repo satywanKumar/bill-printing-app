@@ -1,0 +1,51 @@
+<div class="wrapper">
+  <div *ngIf="isLoading" style="text-align: center; margin-top:10%">
+      <img src="assets/Loader.gif"/>
+  </div>
+  <div  *ngIf="!isLoading">
+      <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header style="background-color: #eee;">
+              <mat-panel-title>
+                Filter Data
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+        
+            <mat-form-field>
+              <input matInput placeholder="Full name" [(ngModel)]="partyName">
+            </mat-form-field>
+
+    
+          </mat-expansion-panel>
+        </mat-accordion>
+        <br>
+        <mat-accordion *ngFor="let account of account |filter:partyName">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{account.partyName}} <span *ngIf="account.total == account.paid || account.total < account.paid" class="no-dues">No dues</span>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+    
+              <div class="row">
+                <!-- <div class="col-sm-2">
+                    <img class="profileImage" src="http://localhost:3000/{{faculty.image}}"/>
+                </div> -->
+                <div class="col-sm-6">
+                   
+                    <p>Phone : {{account.phone}} </p>
+                    <p>Total: {{account.total}}</p>
+
+               </div>
+               <div class="col-sm-6">
+                  <p>Paid : {{account.paid}}</p>
+                  <p>Dues : {{account.total - account.paid}}</p>
+               </div>
+              </div>
+              <button mat-flat-button color="primary" (click)="payRoute(account._id)">Pay</button>
+              <button mat-flat-button style="background-color: teal; color: white;" (click)="editRoute(account._id)">Edit Detail</button>
+              <button mat-flat-button color="warn" (click)="delete(account._id)">Delete</button>
+            </mat-expansion-panel><br>
+          </mat-accordion>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+.wrapper
+{
+
+    padding:10% 5%;
+}
+
+.loader
+{
+    text-align: center;
+}
+table{
+    box-shadow: 5px 5px 10px;
+}
+mat-form-field
+{
+    width:100%;
+}
+
+
+
+
+
+@media (max-width:500px)
+{
+    .wrapper
+    {
+        padding: 15% 5%;
+    }
+}

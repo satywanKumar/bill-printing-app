@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "nodemon server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -12,15 +12,22 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^6.1.0",
+    "@angular/cdk": "^6.2.0",
     "@angular/common": "^6.1.0",
     "@angular/compiler": "^6.1.0",
     "@angular/core": "^6.1.0",
     "@angular/forms": "^6.1.0",
     "@angular/http": "^6.1.0",
+    "@angular/material": "^6.4.7",
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "angular-font-awesome": "^3.1.2",
+    "bootstrap": "^4.4.1",
     "core-js": "^2.5.4",
+    "express.js": "^1.0.0",
+    "font-awesome": "^4.7.0",
+    "nodemon": "^2.0.2",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
@@ -44,5 +51,9 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~2.9.2"
+  },
+  "engines": {
+    "node": "10.16.3",
+    "npm" : "6.4.1"
   }
 }

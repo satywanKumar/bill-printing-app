@@ -1,0 +1,51 @@
+.wrapper
+{
+    padding: 8% 2%;
+}
+#bill
+{
+    background-color: white;
+    padding: 2%;
+}
+.company-container
+{
+    text-align: center;
+}
+.company-name
+{
+    color: red;
+    text-decoration: underline;
+}
+.company-detail
+{
+    color:blue;
+}
+table{
+    width:90%;
+    margin: auto;
+    
+}
+td,th
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+p{
+    text-transform: capitalize;
+}
+ul
+{
+    list-style: none;
+}
+
+.signature
+{
+    text-align: right;
+    padding:5%;
+}
+
+.loader
+{
+    text-align: center;
+}

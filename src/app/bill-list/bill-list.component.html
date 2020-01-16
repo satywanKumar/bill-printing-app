@@ -1,0 +1,48 @@
+<div class="wrapper">
+  <div *ngIf="isLoading" class="loader">
+    <img src="assets/Loader.gif"/>
+  </div>
+
+  <mat-accordion *ngIf="!isLoading">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Search Bill
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field>
+        <input  name="partyName" matInput placeholder="Start to type party name" [(ngModel)]="partyName">
+      </mat-form-field>
+      
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br>
+
+
+  <!-- <p *ngIf="!isLoading" align="center">All Bill</p> -->
+  <table *ngIf="!isLoading"  class="table">
+    <thead>
+      <tr>
+        <th>sl.no</th>
+        <th>Party Name</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Detail</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let bill of bills | filter:partyName; let i=index;">
+        <td>{{i+1}}</td>
+        <td>{{bill.partyName}}</td>
+        <td>{{bill.dateOfBill |date: 'dd-MM-yyyy'}}</td>
+        <td>Rs. {{bill.grossTotal}}</td>
+        <td><button class="btn btn-primary btn-sm" (click)="billDetailRoute(bill._id)">Print</button></td>
+        <td><button class="btn btn-danger btn-sm" (click)="delete(bill._id)">Delete</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

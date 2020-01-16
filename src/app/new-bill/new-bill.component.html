@@ -1,0 +1,139 @@
+<div class="wrapper">
+    <!-- <button class="btn btn-primary" (click)="saveBill()">save</button> -->
+   <form [formGroup]="bill" (ngSubmit)="saveBill()">
+    <div class="form-box">
+        <h5 align="center">PARTY DETAIL</h5><br>
+        <input type="text" class="form-control" placeholder="Party name" formControlName="partyName"><br>
+        <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Address line 1" formControlName="partyAdd1">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Address line 2" formControlName="partyAdd2">
+            </div>
+        </div><br>
+
+        <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="City" formControlName="city">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="State" formControlName="state">
+            </div>
+        </div><br>
+
+        <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Country" formControlName="country">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Zip code" formControlName="pin">
+            </div>
+        </div><br>
+
+        <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="PAN No." formControlName="partyPanNo">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Phone" formControlName="phone">
+            </div>
+        </div><br>
+        <input type="text" class="form-control" placeholder="Email" formControlName="email"><br>
+        <input type="text" class="form-control" placeholder="Tax Invoice Number" formControlName="taxInvoiceNo">
+
+    </div>
+    <br>
+
+    <div class="form-box">
+      <h5 align="center">EXTRA DETAIL</h5>
+      <br>
+      <div class="form-row">
+          <div class="col">
+            <input type="number" class="form-control" formControlName="rate" placeholder="Rate">
+          </div>
+          <div class="col">
+            <input type="number" class="form-control" placeholder="GST %" formControlName="gstPercent">
+          </div>
+          <div class="col">
+              <input type="number" class="form-control" placeholder="SGST %" formControlName="sgstPercent">
+            </div>
+      </div><br>
+  </div>
+  <br>
+
+
+    <div class="form-box">
+        <h5 align="center">QUANTITY</h5>
+        <div class="form-row">
+          <div class="col">
+            <p>Total Quantity : {{total}}</p>
+          </div>
+
+          <div class="col">
+            <p>Rate : {{bill.get('rate').value}}</p>
+          </div>
+
+          <div class="col">
+            <p>Basic Value : Rs. {{total * bill.get('rate').value }}</p>
+          </div>
+        </div>
+        <br>
+        <div formArrayName="quantity" *ngFor="let link of getControls(); let i=index">
+            <div [formGroupName]="i">
+                <div class="form-row" style="text-align: center;">
+                    <div class="col">
+                      <span>{{i+1}}</span>
+                    </div>
+                    <div class="col">
+                      <input (change)="totalQunatity()" type="number" class="form-control" placeholder="Number" formControlName="no">
+                    </div>
+                    <div class="col">
+                        <mat-icon *ngIf="bill.get('quantity').length>1" class="cancel-icon" (click)="removeFormGroup(i)">cancel</mat-icon>
+                      </div>
+                </div><br>
+            </div>
+            
+           <!-- <table class="table">
+            <thead>
+                <tr>
+                  <th>Sl. No.</th>
+                  <th>Quantity</th>
+                  <th>delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><input type="text" class="form-control" placeholder="Number"></td>
+                    <td><mat-icon>cancel</mat-icon></td>
+                  </tr>
+              </tbody>
+           </table> -->
+        </div>
+        <br>
+        <button type="button" (click)="addquantityButtonClick()" class="btn btn-secondary btn-block">Add New Quantity</button>
+    </div>
+    <br>
+   
+
+    <div class="form-box">
+        <h5 align="center">SHIPPING DETAIL</h5>
+        <br>
+        <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Vehicle NO." formControlName="vehicleNo">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Vehicle Type" formControlName="vehicleType">
+            </div>
+        </div><br>
+        <input type="text" class="form-control" placeholder="Place" formControlName="shippingDetailPlace">
+
+    </div>
+    <br>
+    <!-- <button class="btn btn-danger" (click)="totalQunatity()">total</button> -->
+    <button type="submit" class="btn btn-block btn-primary"><fa *ngIf="isLoading" name="cog" animation="spin"></fa> Save</button>
+   </form>
+    
+</div>

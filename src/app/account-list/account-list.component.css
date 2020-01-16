@@ -1,0 +1,29 @@
+.wrapper
+{
+    width:100%;
+    background-color: white;
+    padding:12% 5%;
+    height:100vh;
+}
+mat-form-field{
+    width:100%;
+}
+.profileImage
+{
+    height:7vw;
+}
+p,h2,mat-panel-title,button
+{
+    font-family: montserrat !important;
+    text-transform: capitalize;
+}
+
+.no-dues
+{
+    position: relative;
+    left: 30%;
+    color: white;
+    background-color: red;
+    padding: 5px;
+    border-radius:50%;
+}

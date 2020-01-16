@@ -1,0 +1,41 @@
+.wrapper
+{
+    width:100%;
+    background-color: white;
+    padding:10% 2%;
+}
+.fee-card
+{
+    width:70%;
+    margin: auto;
+    box-shadow: 5px 5px 10px;
+    font-family: montserrat;
+    
+}
+.fee-detail
+{
+    padding-left:20px;
+    padding-right: 20px;
+}
+.header
+{
+    width: 100%;
+    text-align: center;
+    background-color: teal;
+    color:white;
+    padding:5px;
+}
+mat-form-field,button
+{
+    width:100%;
+}
+form{
+    padding:10px;
+}
+@media (max-width:500px)
+{
+    .fee-card
+    {
+        width: 99%;
+    }
+}
