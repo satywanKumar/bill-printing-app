@@ -10,8 +10,8 @@ export class BillService {
 
   constructor(public http:HttpClient) { }
 
-  public url = 'https://ss-bricks-web-api.herokuapp.com/bill';
-  public baseUrl = 'https://ss-bricks-web-api.herokuapp.com';
+  public url = '';
+  public baseUrl = '';
 
   newBill(data){
     const headers = new HttpHeaders({'Content-Type': 'application/json','Accept': 'application/json','Access-Control-Allow-Origin':'*', });
